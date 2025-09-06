@@ -69,3 +69,6 @@ class BotCommands:
                     message.chat.id,
                     "❌ Вы не подписаны на уведомления"
                 )
+        @self.bot.message_handler(commands=['change'])
+        async def send_change_message(message):
+            print("Change used")
