@@ -6,7 +6,7 @@ from commands import BotCommands
 
 async def main():
     bot = AsyncTeleBot(token) # Инициализация самого бота
-    bot_commands = BotCommands(bot) # Подключение модуля команд
+    BotCommands(bot) # Подключение модуля команд
 
     print("Bot started...")
     await bot.polling() # Запуск бота

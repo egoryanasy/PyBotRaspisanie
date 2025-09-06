@@ -37,8 +37,8 @@ class IDStorage:
             if chat_id in ids:
                 ids.remove(chat_id)
                 with open(self.filename, "w") as f:
-                    for id in ids:
-                        f.write(id + "\n")
+                    for value in ids:
+                        f.write(value + "\n")
                 return True
             return False
 
