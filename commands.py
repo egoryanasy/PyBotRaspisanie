@@ -1,9 +1,12 @@
+from math import acosh
+
 from telebot.async_telebot import AsyncTeleBot
 from storage import IDStorage
+from telebot import types
 
 
 class BotCommands:
-    def __init__(self, bot: AsyncTeleBot):
+    def __init__(self, bot: AsyncTeleBot): # Модуль инициализации
         self.bot = bot
         self.storage = IDStorage()
         self.setup_handlers()
@@ -75,6 +78,30 @@ class BotCommands:
                 )
 
         @self.bot.message_handler(commands=['change'])
-        # Поменять привязку к группе
+        # Поменять привязку к группе с inline кнопками
         async def send_change_message(message):
             print("Change used")
+            keyboard = types.InlineKeyboardMarkup()
+            course1 = types.InlineKeyboardButton(text="1 курс", callback_data="course1")
+            course2 = types.InlineKeyboardButton(text="2 курс", callback_data="course2")
+            course3 = types.InlineKeyboardButton(text="3 курс", callback_data="course3")
+            course4 = types.InlineKeyboardButton(text="4 курс", callback_data="course4")
+
+            keyboard.add(course1, course2)
+            keyboard.add(course3, course4)
+
+            await self.bot.send_message(message.chat.id,
+                                    "Выберите курс Ваш курс:",
+                                    reply_markup=keyboard)
+
+        @self.bot.callback_query_handler(func=lambda call: True)
+        # Обработка inline кнопок
+        async def callback(call):
+            if call.data == "course1":
+                await self.bot.send_message(call.message.chat.id, "первый курс")
+            if call.data == "course2":
+                await self.bot.send_message(call.message.chat.id, "второй курс")
+            if call.data == "course3":
+                await self.bot.send_message(call.message.chat.id, "третий курс")
+            if call.data == "course4":
+                await self.bot.send_message(call.message.chat.id, "четвертый курс")

@@ -5,11 +5,11 @@ from commands import BotCommands
 
 
 async def main():
-    bot = AsyncTeleBot(token)
-    bot_commands = BotCommands(bot)
+    bot = AsyncTeleBot(token) # Инициализация самого бота
+    bot_commands = BotCommands(bot) # Подключение модуля команд
 
     print("Bot started...")
-    await bot.polling()
+    await bot.polling() # Запуск бота
 
 if __name__ == "__main__":
     asyncio.run(main())
