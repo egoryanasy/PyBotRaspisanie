@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a77aafad-85fc-404b-84fc-0ef26518e776" name="Changes" comment="Добавление комментариев к командам">
-      <change afterPath="$PROJECT_DIR$/dictionarys.py" afterDir="false" />
+    <list default="true" id="a77aafad-85fc-404b-84fc-0ef26518e776" name="Changes" comment="Работа с Inline кнопками">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/commands.py" beforeDir="false" afterPath="$PROJECT_DIR$/commands.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -124,7 +122,15 @@
       <option name="project" value="LOCAL" />
       <updated>1757151797123</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Работа с Inline кнопками">
+      <option name="closed" value="true" />
+      <created>1757158325485</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1757158325485</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -132,6 +138,7 @@
     <MESSAGE value="Работа с файлом, вместо листа и перенесение команд в отдельный файл" />
     <MESSAGE value="хз" />
     <MESSAGE value="Добавление комментариев к командам" />
-    <option name="LAST_COMMIT_MESSAGE" value="Добавление комментариев к командам" />
+    <MESSAGE value="Работа с Inline кнопками" />
+    <option name="LAST_COMMIT_MESSAGE" value="Работа с Inline кнопками" />
   </component>
 </project>

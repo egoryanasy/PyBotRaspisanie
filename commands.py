@@ -81,27 +81,52 @@ class BotCommands:
         # Поменять привязку к группе с inline кнопками
         async def send_change_message(message):
             print("Change used")
-            keyboard = types.InlineKeyboardMarkup()
+            coursekeyboard = types.InlineKeyboardMarkup()
             course1 = types.InlineKeyboardButton(text="1 курс", callback_data="course1")
             course2 = types.InlineKeyboardButton(text="2 курс", callback_data="course2")
             course3 = types.InlineKeyboardButton(text="3 курс", callback_data="course3")
             course4 = types.InlineKeyboardButton(text="4 курс", callback_data="course4")
+            teacher = types.InlineKeyboardButton(text="Преподаватель", callback_data="teacher")
 
-            keyboard.add(course1, course2)
-            keyboard.add(course3, course4)
+            coursekeyboard.add(course1, course2)
+            coursekeyboard.add(course3, course4)
+            coursekeyboard.add(teacher)
 
             await self.bot.send_message(message.chat.id,
                                     "Выберите курс Ваш курс:",
-                                    reply_markup=keyboard)
+                                        reply_markup=coursekeyboard)
 
         @self.bot.callback_query_handler(func=lambda call: True)
         # Обработка inline кнопок
         async def callback(call):
             if call.data == "course1":
                 await self.bot.send_message(call.message.chat.id, "первый курс")
+                first = types.InlineKeyboardMarkup()
+
             if call.data == "course2":
                 await self.bot.send_message(call.message.chat.id, "второй курс")
             if call.data == "course3":
                 await self.bot.send_message(call.message.chat.id, "третий курс")
             if call.data == "course4":
-                await self.bot.send_message(call.message.chat.id, "четвертый курс")
+                fourth = types.InlineKeyboardMarkup()
+                group404 = types.InlineKeyboardButton(text="ИСП-404", callback_data="gr404")
+                group405 = types.InlineKeyboardButton(text="ИСП-405", callback_data="gr405")
+                group406 = types.InlineKeyboardButton(text="ИСП-406", callback_data="gr406")
+
+                fourth.add(group404, group405, group406)
+
+                await self.bot.send_message(call.message.chat.id,
+                                            "Выберите группу 4 курса",
+                                            reply_markup=fourth)
+            if call.data == "teacher":
+                await self.bot.send_message(call.message.chat.id, "Преподаватель")
+
+            if call.data == "gr404":
+                await self.bot.send_message(call.message.chat.id,
+                                            "Вы успешно выбрали группу ИСП-404")
+            if call.data == "gr405":
+                await self.bot.send_message(call.message.chat.id,
+                                            "Вы успешно выбрали группу ИСП-405")
+            if call.data == "gr406":
+                await self.bot.send_message(call.message.chat.id,
+                                            "Вы успешно выбрали группу ИСП-406")
