@@ -10,6 +10,7 @@ class BotCommands:
 
     def setup_handlers(self):
         @self.bot.message_handler(commands=['start'])
+        # Переход в начало или начало работы с ботом
         async def send_welcome_message(message):
             print("Start used.")
             added = await self.storage.add_id(str(message.chat.id))
@@ -24,6 +25,7 @@ class BotCommands:
             await self.bot.send_message(message.chat.id, text)
 
         @self.bot.message_handler(commands=['unsubscribe'])
+        # Отписка от уведомлений об изменении расписания
         async def send_unsubscribe_message(message):
             print("Unsubscribe used")
             removed = await self.storage.remove_id(str(message.chat.id))
@@ -40,6 +42,7 @@ class BotCommands:
                 )
 
         @self.bot.message_handler(commands=['subscribe'])
+        # Подписка на уведомление об изменении расписания
         async def send_subscribe_message(message):
             print("Subscribe used")
             added = await self.storage.add_id(str(message.chat.id))
@@ -56,6 +59,7 @@ class BotCommands:
                 )
 
         @self.bot.message_handler(commands=['status'])
+        # Проверка подписки на увдеомление об изменении расписания
         async def send_status_message(message):
             is_subscribed = await self.storage.contains_id(str(message.chat.id))
 
@@ -69,6 +73,8 @@ class BotCommands:
                     message.chat.id,
                     "❌ Вы не подписаны на уведомления"
                 )
+
         @self.bot.message_handler(commands=['change'])
+        # Поменять привязку к группе
         async def send_change_message(message):
             print("Change used")
