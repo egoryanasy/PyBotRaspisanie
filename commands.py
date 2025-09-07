@@ -1,12 +1,14 @@
 from telebot.async_telebot import AsyncTeleBot
 from storage import IDStorage
 from telebot import types
+from callbacks import CallbackHandlers
 
 
 class BotCommands:
     def __init__(self, bot: AsyncTeleBot): # Модуль инициализации
         self.bot = bot
         self.storage = IDStorage()
+        self.callback_handler = CallbackHandlers(bot, self.storage)
         self.setup_handlers()
 
     def setup_handlers(self):
@@ -97,34 +99,4 @@ class BotCommands:
         @self.bot.callback_query_handler(func=lambda call: True)
         # Обработка inline кнопок
         async def callback(call):
-            if call.data == "course1":
-                await self.bot.send_message(call.message.chat.id, "первый курс")
-                # first = types.InlineKeyboardMarkup()
-
-            if call.data == "course2":
-                await self.bot.send_message(call.message.chat.id, "второй курс")
-            if call.data == "course3":
-                await self.bot.send_message(call.message.chat.id, "третий курс")
-            if call.data == "course4":
-                fourth = types.InlineKeyboardMarkup()
-                group404 = types.InlineKeyboardButton(text="ИСП-404", callback_data="gr404")
-                group405 = types.InlineKeyboardButton(text="ИСП-405", callback_data="gr405")
-                group406 = types.InlineKeyboardButton(text="ИСП-406", callback_data="gr406")
-
-                fourth.add(group404, group405, group406)
-
-                await self.bot.send_message(call.message.chat.id,
-                                            "Выберите группу 4 курса",
-                                            reply_markup=fourth)
-            if call.data == "teacher":
-                await self.bot.send_message(call.message.chat.id, "Преподаватель")
-
-            if call.data == "gr404":
-                await self.bot.send_message(call.message.chat.id,
-                                            "Вы успешно выбрали группу ИСП-404")
-            if call.data == "gr405":
-                await self.bot.send_message(call.message.chat.id,
-                                            "Вы успешно выбрали группу ИСП-405")
-            if call.data == "gr406":
-                await self.bot.send_message(call.message.chat.id,
-                                            "Вы успешно выбрали группу ИСП-406")
+            await self.callback_handler.handle_callback(call)
