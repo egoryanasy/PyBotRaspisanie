@@ -7,6 +7,14 @@ links = {
     "ИСП-304": "https://dec.mgutm.ru/api/Rasp?idGroup=31816",
     "ИСП-305": "https://dec.mgutm.ru/api/Rasp?idGroup=31817",
     "ИСП-306": "https://dec.mgutm.ru/api/Rasp?idGroup=31818",
+    "ИСП-204": "https://dec.mgutm.ru/api/Rasp?idGroup=31819",
+    "ИСП-205": "https://dec.mgutm.ru/api/Rasp?idGroup=31820",
+    "ИСП-206": "https://dec.mgutm.ru/api/Rasp?idGroup=31821",
+    "ИСП-207": "https://dec.mgutm.ru/api/Rasp?idGroup=31822",
+    "ИСП-101": "https://dec.mgutm.ru/api/Rasp?idGroup=31823",
+    "ИСП-102": "https://dec.mgutm.ru/api/Rasp?idGroup=31824",
+    "ИСП-103": "https://dec.mgutm.ru/api/Rasp?idGroup=31825",
+    "ИСП-104": "https://dec.mgutm.ru/api/Rasp?idGroup=31826",
 }
 
 transcripts = {
@@ -16,4 +24,12 @@ transcripts = {
     "090207-9о-пр-23/1": "ИСП-304",
     "090207-9о-пр-23/2": "ИСП-305",
     "090207-9о-пр-23/3": "ИСП-306",
+    "090207-9о-пр-24/1": "ИСП-204",
+    "090207-9о-пр-24/2": "ИСП-205",
+    "090207-9о-пр-24/3": "ИСП-206",
+    "090207-9о-пр-24/4": "ИСП-207",
+    "090207-9о-пр-25/1": "ИСП-101",
+    "090207-9о-пр-25/2": "ИСП-102",
+    "090207-9о-пр-25/3": "ИСП-103",
+    "090207-9о-пр-25/4": "ИСП-104",
 }
